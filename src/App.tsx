@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
+import Main from './components/Main';
+import './styles/global.scss';
 
 const App = () => {
-    return (
-        <div>Hello!</div>
-    );
+  return <Main />;
 };
 
 export default App;
