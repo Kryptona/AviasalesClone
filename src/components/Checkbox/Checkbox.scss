@@ -3,14 +3,16 @@
 $unchecked: #9abbce;
 
 .root {
+  margin-top: 20px;
   .checkbox {
+    vertical-align: middle;
     content: none;
     outline: none;
     appearance: none;
     margin: 0;
     &:before {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       display: inline-block;
       border: 1px solid $transparent_primary_color;
       border-radius: 2px;
@@ -25,5 +27,12 @@ $unchecked: #9abbce;
       color: black !important;
       border-color: $primary_color;
     }
+  }
+  .text {
+    vertical-align: middle;
+    font-weight: normal;
+    margin-left: 10px;
+    text-transform: none;
+    font-size: 12px;
   }
 }
