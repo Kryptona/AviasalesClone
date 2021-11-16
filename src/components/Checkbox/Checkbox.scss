@@ -1,0 +1,29 @@
+@import '../../styles/default';
+
+$unchecked: #9abbce;
+
+.root {
+  .checkbox {
+    content: none;
+    outline: none;
+    appearance: none;
+    margin: 0;
+    &:before {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      border: 1px solid $transparent_primary_color;
+      border-radius: 2px;
+      content: '';
+      font-size: 11px;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: transparent !important;
+    }
+    &:checked:before {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAYAAADN5B7xAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC2SURBVHgBjY/BDYJAEEVnNigx0QQ6WLUB6QBLsALkaLjYgVgBJEbOdmCsgBJsYTvQCEfgy2IUSTjwTzOT92f+MA2QjB4Wm8YVVN3EAFiyOUrr0iUIi4fBkAAdVTALxTLJvUWSRz3wqoXZ17CeixJwQNjPk+yuszbwKXN5bKSEygIKRwXTy3dRE0mes5CZDnWrWFCMCnG9WYHLtdrZ6v/y74fWpNUPdwwf02vLzB4mxUb59pN69Aa/XE7WdkG8TwAAAABJRU5ErkJggg==');
+      color: black !important;
+      border-color: $primary_color;
+    }
+  }
+}
