@@ -1,3 +1,55 @@
-.root{
+@import '../../styles/default';
 
+$gray_color: #a0b0b9;
+
+.root {
+  width: 502px;
+  height: 184px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: $white_color;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .price {
+      font-size: 24px;
+      line-height: 24px;
+      color: $primary_color;
+    }
+    .logo {
+      margin: 0;
+      width: 110px;
+      height: 100%;
+    }
+  }
+  .content {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+    flex-direction: row;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+
+    .renderSection {
+      display: flex;
+      flex-direction: column;
+      width: 140px;
+      .title {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: 0.5px;
+        color: $gray_color;
+      }
+      .info {
+      }
+    }
+  }
 }
