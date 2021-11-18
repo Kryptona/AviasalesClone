@@ -1,11 +1,39 @@
-@import "../styles/default";
+@import '../styles/default';
 
-.root{
+.root {
   background-color: $main_color;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  img{
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-areas:
+    'header header header header'
+    'nav sorted_card card ads'
+    'footer footer footer footer';
+  grid-template-rows: 160px 1fr 80px;
+  grid-template-columns: 1fr 232px 502px 1fr;
+  grid-gap: 10px;
+
+  .header {
+    grid-area: header;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .content{
+    .sorted_card {
+      grid-area: sorted_card;
+    }
+    .card{
+      grid-area: card;
+    }
+  }
+
+  .footer{
+    grid-area: footer;
+  }
+
+  img {
     width: 80px;
     height: 80px;
     margin-top: 48px;
