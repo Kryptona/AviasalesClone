@@ -8,11 +8,12 @@
   display: grid;
   grid-template-areas:
     'header header header header'
-    'nav sorted_card card ads'
+    'leftStub filter_card sort_section rightStub'
+    'leftStub filter_card cards rightStub'
     'footer footer footer footer';
-  grid-template-rows: 160px 1fr 80px;
+  grid-template-rows: 160px 50px 1fr 80px;
   grid-template-columns: 1fr 232px 502px 1fr;
-  grid-gap: 10px;
+  grid-gap: 20px;
 
   .header {
     grid-area: header;
@@ -20,17 +21,28 @@
     justify-self: center;
   }
 
-  .content{
-    .sorted_card {
-      grid-area: sorted_card;
-    }
-    .card{
-      grid-area: card;
-    }
+  .filter_card {
+    grid-area: filter_card;
   }
 
-  .footer{
+  .sort_section {
+    grid-area: sort_section;
+  }
+
+  .cards {
+    grid-area: cards;
+  }
+
+  .footer {
     grid-area: footer;
+  }
+
+  .leftStub {
+    grid-area: leftStub;
+  }
+
+  .rightStub {
+    grid-area: rightStub;
   }
 
   img {

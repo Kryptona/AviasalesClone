@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from "./ButtonsSections.scss";
+import styles from "./SortSection.scss";
 
-const ButtonsSections = () => {
+const SortSection = () => {
     return (
         <div className={styles.root}>
             <button className={styles.left}>Самый дешевый</button>
@@ -11,4 +11,4 @@ const ButtonsSections = () => {
     );
 };
 
-export default ButtonsSections;
+export default SortSection;

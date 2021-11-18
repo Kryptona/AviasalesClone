@@ -13,7 +13,7 @@ $border-color: #dfe5ec;
     font-family: $font_default;
     font-weight: 600;
     font-size: 12px;
-    color: #4A4A4A;
+    color: #4a4a4a;
 
     &:focus {
       background-color: $primary_color;
@@ -23,6 +23,11 @@ $border-color: #dfe5ec;
   }
   .left {
     border-radius: 5px 0 0 5px;
+  }
+  .middle {
+    width: 166px;
+    border-left: none;
+    border-right: none;
   }
   .right {
     border-radius: 0 5px 5px 0;
