@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Main.scss';
 import Card from './Card/Card';
 import aviasales_logo from '../img/aviasales_logo.svg';
 import SortedCheckbox from './SortedCheckbox/SortedCheckbox';
 import SortSection from './SortSection/SortSection';
+import {ticketApi} from '../api/ticketApi';
+import {Ticket} from '../domain/Ticket';
 
 const Main = () => {
+  const [tickets, setTickets] = useState<ReadonlyArray<Ticket>>([]);
+
+  console.log(tickets)
+  useEffect(() => {
+    ticketApi.getTicket().then((tickets) => {
+        setTickets(tickets)
+    });
+  }, []);
+
   return (
     <div className={styles.root}>
       <div className={styles.header}>
@@ -18,7 +29,10 @@ const Main = () => {
         <SortSection />
       </div>
       <div className={styles.cards}>
-        <Card />
+          {tickets.map( ticket =>
+              <Card ticket={ticket} />
+          )}
+
       </div>
       <div className={styles.leftStub}></div>
       <div className={styles.rightStub}></div>

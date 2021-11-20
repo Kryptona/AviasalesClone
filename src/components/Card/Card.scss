@@ -11,6 +11,10 @@ $gray_color: #a0b0b9;
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
+  &:not(:first-child) {
+    margin-top: 20px;
+  }
+
   .title {
     display: flex;
     flex-direction: row;
