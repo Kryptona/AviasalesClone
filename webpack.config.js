@@ -81,7 +81,13 @@ module.exports = {
     devServer: {
         hot: true,
         open: true,
+        port: 8080,
+        // host: 'front-test.beta.aviasales.ru',
         historyApiFallback: true,
+        proxy: {
+            "/search": "https://front-test.beta.aviasales.ru/search",
+            "/tickets": "https://front-test.beta.aviasales.ru/tickets",
+        },
         client: {
             progress: true,
             overlay: {
