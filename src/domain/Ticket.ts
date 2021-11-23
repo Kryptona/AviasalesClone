@@ -32,3 +32,12 @@ export interface Ticket {
     },
   ];
 }
+
+export function compareByDuration(ticket1: Ticket, ticket2: Ticket): number {
+  const firstTicketDur = ticket1.segments.reduce((a, s) => a + s.duration, 0);
+  const secondTicketDur = ticket2.segments.reduce((a, s) => a + s.duration, 0);
+
+  if (firstTicketDur === secondTicketDur) return 0;
+  if (firstTicketDur < secondTicketDur) return -1;
+  if (firstTicketDur > secondTicketDur) return 1;
+}
