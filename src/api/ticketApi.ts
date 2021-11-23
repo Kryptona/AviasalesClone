@@ -8,7 +8,8 @@ function getTickets(): Promise<Ticket[]> {
     .get('https://front-test.beta.aviasales.ru/search')
     .then((id: AxiosResponse<SearchResponse>) => id.data.searchId)
     .then((id) => axios.get(`https://front-test.beta.aviasales.ru/tickets?searchId=${id}`))
-    .then((tickets: AxiosResponse<TicketsResponse>) => tickets.data.tickets.slice(0, 20));
+    .then((tickets: AxiosResponse<TicketsResponse>) => tickets.data.tickets);
+    // .then((tickets: AxiosResponse<TicketsResponse>) => tickets.data.tickets.slice(0, 20));
 }
 
 export const ticketApi = {

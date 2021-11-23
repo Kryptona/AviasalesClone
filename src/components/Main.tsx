@@ -9,13 +9,24 @@ import {Ticket} from '../domain/Ticket';
 
 const Main = () => {
   const [tickets, setTickets] = useState<ReadonlyArray<Ticket>>([]);
+  const [allTickets, setAllTickets] = useState<ReadonlyArray<Ticket>>([]);
+  const [transfers, setTransfers] = useState([]);
 
-  console.log(tickets)
+  console.log(tickets);
   useEffect(() => {
     ticketApi.getTicket().then((tickets) => {
-        setTickets(tickets)
+      setAllTickets(tickets);
     });
   }, []);
+
+  const filterTickets = () => {};
+
+  const sortTickets = () => {};
+
+  const onSortByLowCost = () => {
+
+  };
+  const onSortByFaster = () => {};
 
   return (
     <div className={styles.root}>
@@ -23,16 +34,15 @@ const Main = () => {
         <img src={aviasales_logo} />
       </div>
       <div className={styles.filter_card}>
-        <SortedCheckbox />
+        <SortedCheckbox values={transfers} onValuesChange={setTransfers}/>
       </div>
       <div className={styles.sort_section}>
-        <SortSection />
+        <SortSection onSortByLowCost={onSortByLowCost} onSortByFaster={onSortByFaster}/>
       </div>
       <div className={styles.cards}>
-          {tickets.map( ticket =>
-              <Card ticket={ticket} />
-          )}
-
+        {tickets.map((ticket) => (
+          <Card ticket={ticket} />
+        ))}
       </div>
       <div className={styles.leftStub}></div>
       <div className={styles.rightStub}></div>

@@ -3,12 +3,14 @@ import styles from './Checkbox.scss';
 
 interface Props {
   text: string;
+  value: boolean;
+  onValueChange: (value: boolean) => void;
 }
 
-const Checkbox: React.FC<Props> = ({text}) => {
+const Checkbox: React.FC<Props> = ({text, value, onValueChange}) => {
   return (
     <div className={styles.root}>
-      <input className={styles.checkbox} type="checkbox" />
+      <input className={styles.checkbox} type="checkbox" checked={value} onClick={() => onValueChange(!value)} />
       <span className={styles.text}>{text}</span>
     </div>
   );
