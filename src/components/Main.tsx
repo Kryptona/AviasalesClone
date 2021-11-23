@@ -5,7 +5,7 @@ import aviasales_logo from '../img/aviasales_logo.svg';
 import SortedCheckbox from './SortedCheckbox/SortedCheckbox';
 import SortSection from './SortSection/SortSection';
 import {ticketApi} from '../api/ticketApi';
-import {compareByDuration, Ticket} from '../domain/Ticket';
+import {compareByDuration, compareByPrice, Ticket} from '../domain/Ticket';
 import {SortType} from '../domain/SortType';
 
 const Main = () => {
@@ -13,6 +13,7 @@ const Main = () => {
   const [allTickets, setAllTickets] = useState<ReadonlyArray<Ticket>>([]);
   const [transfers, setTransfers] = useState([]);
   const [sortValue, setSortValue] = useState(SortType.fastest);
+  console.log(allTickets);
 
   useEffect(() => {
     ticketApi.getTicket().then((tickets) => {
@@ -25,10 +26,13 @@ const Main = () => {
 
   const sortTickets = () => {};
 
-  const onSortByLowCost = () => {};
+  const onSortByLowCost = () => {
+    const lowCostTickets = [...allTickets].sort(compareByPrice);
+    setTickets(lowCostTickets.slice(0, 20));
+  };
+
   const onSortByFaster = () => {
     const fastTickets = [...allTickets].sort(compareByDuration);
-    console.log(fastTickets);
     setTickets(fastTickets.slice(0, 20));
   };
 

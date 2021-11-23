@@ -41,3 +41,9 @@ export function compareByDuration(ticket1: Ticket, ticket2: Ticket): number {
   if (firstTicketDur < secondTicketDur) return -1;
   if (firstTicketDur > secondTicketDur) return 1;
 }
+
+export function compareByPrice(ticket1: Ticket, ticket2: Ticket): number {
+  if(ticket1.price === ticket2.price) return 0;
+  if(ticket1.price < ticket2.price) return -1;
+  if(ticket1.price > ticket2.price) return 1;
+}
