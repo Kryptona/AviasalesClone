@@ -6,11 +6,13 @@ import SortedCheckbox from './SortedCheckbox/SortedCheckbox';
 import SortSection from './SortSection/SortSection';
 import {ticketApi} from '../api/ticketApi';
 import {Ticket} from '../domain/Ticket';
+import {SortType} from "../domain/SortType";
 
 const Main = () => {
   const [tickets, setTickets] = useState<ReadonlyArray<Ticket>>([]);
   const [allTickets, setAllTickets] = useState<ReadonlyArray<Ticket>>([]);
   const [transfers, setTransfers] = useState([]);
+  const [sortValue, setSortValue] = useState(SortType.fastest);
 
   console.log(tickets);
   useEffect(() => {
@@ -37,7 +39,7 @@ const Main = () => {
         <SortedCheckbox values={transfers} onValuesChange={setTransfers}/>
       </div>
       <div className={styles.sort_section}>
-        <SortSection onSortByLowCost={onSortByLowCost} onSortByFaster={onSortByFaster}/>
+        <SortSection value={sortValue} onChangeValue={setSortValue}/>
       </div>
       <div className={styles.cards}>
         {tickets.map((ticket) => (

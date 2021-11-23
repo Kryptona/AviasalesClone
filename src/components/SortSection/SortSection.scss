@@ -15,7 +15,7 @@ $border-color: #dfe5ec;
     font-size: 12px;
     color: #4a4a4a;
 
-    &:focus {
+    &.focus {
       background-color: $primary_color;
       border: none;
       color: $white_color;
