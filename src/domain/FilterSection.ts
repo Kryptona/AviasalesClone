@@ -4,3 +4,5 @@ export enum TransferType {
   transfer2,
   transfer3,
 }
+
+export const transferTypeValues = Object.values(TransferType);

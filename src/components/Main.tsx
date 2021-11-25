@@ -7,13 +7,13 @@ import SortSection from './SortSection/SortSection';
 import {ticketApi} from '../api/ticketApi';
 import {compareByDuration, compareByPrice, Ticket} from '../domain/Ticket';
 import {SortType} from '../domain/SortType';
+import {TransferType, transferTypeValues} from '../domain/FilterSection';
 
 const Main = () => {
   const [tickets, setTickets] = useState<ReadonlyArray<Ticket>>([]);
   const [allTickets, setAllTickets] = useState<ReadonlyArray<Ticket>>([]);
-  const [transfers, setTransfers] = useState([]);
+  const [transfers, setTransfers] = useState([0, 1, 2, 3]);
   const [sortValue, setSortValue] = useState(SortType.fastest);
-  console.log(allTickets);
 
   useEffect(() => {
     ticketApi.getTicket().then((tickets) => {
@@ -22,9 +22,11 @@ const Main = () => {
     });
   }, []);
 
-  const filterTickets = () => {};
-
-  const sortTickets = () => {};
+  const setTransfersWrapper = (newTransfers: TransferType[]) => {
+    const newTickets = allTickets.filter((ticket) => checkTicket(ticket, newTransfers));
+    setTickets(newTickets.slice(0, 20));
+    setTransfers(newTransfers);
+  };
 
   const onSortByLowCost = () => {
     const lowCostTickets = [...allTickets].sort(compareByPrice);
@@ -42,7 +44,7 @@ const Main = () => {
         <img src={aviasales_logo} />
       </div>
       <div className={styles.filter_card}>
-        <SortedCheckbox values={transfers} onValuesChange={setTransfers} />
+        <SortedCheckbox values={transfers} onValuesChange={setTransfersWrapper} />
       </div>
       <div className={styles.sort_section}>
         <SortSection
@@ -63,5 +65,17 @@ const Main = () => {
     </div>
   );
 };
+
+function checkTicket(ticket: Ticket, stops: TransferType[]): boolean {
+  if (stops.length === transferTypeValues.length) {
+    return true;
+  }
+
+  const a = ticket.segments[0].stops.length;
+  const b = ticket.segments[1].stops.length;
+  const max = Math.max.apply(null, stops);
+
+  return (stops.includes(a) && b <= max) || (stops.includes(b) && a <= max);
+}
 
 export default Main;
