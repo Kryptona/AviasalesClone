@@ -20,9 +20,6 @@ const SortSection: React.FC<Props> = ({value, onChangeValue, onLowCost, onFastes
         onChangeValue(SortType.fastest);
         onFastest();
     }
-    const optimal = () => {
-        onChangeValue(SortType.optimal)
-    }
 
     return (
         <div className={styles.root}>
@@ -31,14 +28,9 @@ const SortSection: React.FC<Props> = ({value, onChangeValue, onLowCost, onFastes
                 Самый дешевый
             </button>
             <button
-                className={cn(styles.middle, {[styles.focus]: value === SortType.fastest})}
+                className={cn(styles.right, {[styles.focus]: value === SortType.fastest})}
                 onClick={fastest}>
                 Самый быстрый
-            </button>
-            <button
-                className={cn(styles.right, {[styles.focus]: value === SortType.optimal})}
-                onClick={optimal}>
-                Оптимальный
             </button>
         </div>
     );
