@@ -7,7 +7,7 @@ import SortSection from './SortSection/SortSection';
 import {ticketApi} from '../api/ticketApi';
 import {compareByDuration, compareByPrice, Ticket} from '../domain/Ticket';
 import {SortType} from '../domain/SortType';
-import {TransferType, transferTypeValues} from '../domain/FilterSection';
+import {TransferType, transferTypeValues} from '../domain/TransferType';
 
 const Main = () => {
   const [tickets, setTickets] = useState<ReadonlyArray<Ticket>>([]);

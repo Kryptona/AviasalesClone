@@ -1,8 +1,8 @@
 export enum TransferType {
-  direct,
-  transfer1,
-  transfer2,
-  transfer3,
+  direct = 0,
+  transfer1 = 1,
+  transfer2 = 2,
+  transfer3 = 3,
 }
 
 export const transferTypeValues = Object.values(TransferType);

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './SortedCheckbox.scss';
 import Checkbox from '../Checkbox/Checkbox';
-import {TransferType} from '../../domain/FilterSection';
+import {TransferType} from '../../domain/TransferType';
 
 interface Props {
   values: TransferType[];
