@@ -3,9 +3,10 @@
 $border-color: #dfe5ec;
 
 .root {
+
   button {
     height: 50px;
-    width: 250px;
+    width: 50%;
     outline: none;
     border: 1px solid $border-color;
     background-color: $white_color;
@@ -14,11 +15,6 @@ $border-color: #dfe5ec;
     font-weight: 600;
     font-size: 12px;
     color: #4a4a4a;
-
-    @media (max-width: 780px) {
-      width: 100%;
-      max-width: 244px;
-    }
 
     &.focus {
       background-color: $primary_color;

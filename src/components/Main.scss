@@ -23,7 +23,7 @@
       'leftStub cards  rightStub'
       'footer footer footer';
     grid-template-rows: 100px 254px 50px 1fr 80px;
-    grid-template-columns: 10% 80% 10%;
+    grid-template-columns: 1fr 80% 1fr;
   }
 
   .header {

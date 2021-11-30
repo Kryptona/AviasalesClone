@@ -9,7 +9,7 @@ function getTickets(): Promise<Ticket[]> {
     axios
       .get('https://front-test.beta.aviasales.ru/search', {'axios-retry': {retries: 1}})
       .then((id: AxiosResponse<SearchResponse>) => id.data.searchId)
-      .then((id) => axios.get(`https://front-test.beta.aviasales.ru/tickets?searchId=${id}`))
+      .then((id) => axios.get(`https://front-test.beta.aviasales.ru/tickets?searchId=${id}`, {'axios-retry': {retries: 1}}))
       .then((tickets: AxiosResponse<TicketsResponse>) => tickets.data.tickets)
   );
 }
